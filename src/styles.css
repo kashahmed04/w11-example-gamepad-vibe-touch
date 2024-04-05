@@ -3,6 +3,13 @@ html {
   height: 100%;
 }
 
+/*
+The styles on #ratio and #canvas together are known as the padding hack
+But it's not needed now that the aspect-ratio property exists.
+See:
+- https://timothymiller.dev/posts/2022/stop-using-the-padding-hack/
+- https://caniuse.com/?search=aspect-ratio
+
 #ratio {
   height: 0;
   width: 100%;
@@ -19,13 +26,25 @@ html {
   right: 0;
   bottom: 0;
 }
+*/
+
+#canvas {
+  aspect-ratio: 16 / 10;
+  width: 100%;
+}
 
 #readout {
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: bold;
-  white-space: 'pre';
-  position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
+  position: fixed;
+  padding: 10px;
+}
+
+#text {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  white-space: 'pre';
+  color: black;
+  background-color: white;
 }

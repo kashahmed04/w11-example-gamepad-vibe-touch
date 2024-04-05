@@ -3,7 +3,7 @@ import './styles.css';
 
 import { getNameFromIndex, getValueFor, isPressed } from './GamepadHelper';
 
-const readout = document.querySelector('#readout') as HTMLDivElement;
+const text = document.querySelector('#text') as HTMLDivElement;
 const canvas = document.querySelector('#canvas') as HTMLCanvasElement;
 canvas.width = 1600;
 canvas.height = 1000;
@@ -98,7 +98,7 @@ const displayGamepad = (gamepad: Gamepad) => {
       2,
     ),
   );
-  readout.innerText = output.join('\n');
+  text.innerText = output.join('\n');
 
   context.strokeStyle = 'white';
   context.lineWidth = 10;
