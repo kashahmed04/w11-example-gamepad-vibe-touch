@@ -1,3 +1,6 @@
+
+//why do we export button name if we don't use it in main.ts**
+//what do all the pipes represent**
 export type ButtonName =
   | 'A'
   | 'B'
@@ -61,9 +64,15 @@ const buttonNames: ButtonName[] = [
   'Shiny',
 ];
 
+//how does it know which button name to use because we have the type and the array**
+//what does the type and array do and how did we know to have a type and array for the button name**
+//where did we define buttons and when we connect our controller does it know the controller and its inputs
+//are equal to the gamepad type automatically for the gamepad API variable**
+//go over all**
 export const getValueFor = (gamepad: Gamepad, buttonName: ButtonName) => {
   return gamepad.buttons[ButtonIndex[buttonName]].value;
 };
+
 export const getNameFromIndex = (index: number) => {
   return buttonNames[index];
 };
