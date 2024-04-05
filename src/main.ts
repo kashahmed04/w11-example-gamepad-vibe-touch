@@ -23,6 +23,7 @@ window.addEventListener('gamepadconnected', (e) => {
     e.gamepad.buttons.length,
     e.gamepad.axes.length,
   );
+  console.log(e.gamepad);
 });
 
 // used to prevent starting vibration when already vibrating
