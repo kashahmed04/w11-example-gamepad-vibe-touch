@@ -1,4 +1,20 @@
 html {
   font-family: Arial, Helvetica, sans-serif;
   height: 100%;
+  padding: 40px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+button {
+  width: 200px;
+  height: 100px;
+  font-size: 2rem;
 }
