@@ -31,7 +31,7 @@ window.addEventListener('gamepadconnected', (e) => {
   //the id is the name of the controller right**
   //what is the buttons array is it an array of all the controls or what we can do with the controls** (slide 3)**
   //what are the axis for (slide 3)**
-  //go over vibration actuator** (slide 3)**
+  //go over vibration actuator what does it mean by non-standard** (slide 3)**
   //what are these percentages in the console.log statement**
   console.log(
     'Gamepad connected at index %d: %s. %d buttons, %d axes.',
