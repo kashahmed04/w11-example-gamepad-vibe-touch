@@ -283,6 +283,66 @@ const displayGamepad = (gamepad: Gamepad) => {
  * 
  * how would we apply a certain gesture from JS into CSS if the value is in JS (slide 8 last bullet)**
  * 
+ * for a framework if it already had something in the library we use with it does it override whats in the framework
+ * (Ex. using next.JS with react for a rendering layer so it overrrides next.JS rednering layer and replaces if with
+ * react)**
+ * 
+ * go over slide 5 on pip slides**
+ * 
+ * go over slide 6 on pip slides**
+ * 
+ * for slides 8-10 do we only change the package.JSON line and where specifically do we change it 
+ * compared to the original line and we just run the build again right no other npm commands**
+ * 
+ * for slides 11-12 vite only can build one HTML file (by default its index.html) by default when we build
+ * if we have multiple html files we go to the vite.config.js file in our src and just add all the html files we want to
+ * include in our build and the ones we don't put in there will not get included in the build**
+ * 
+ * if we don't specify a main as index.html does it do it by default or what does it put as the main**
+ * 
+ * can the key** before the : be any word or does it have to match our html file name like for dvd**
+ * after we do this we can just rerun the build as well and there is no extra commands right**
+ * 
+ * why did we use image tag in index.html then a svg inline tag for dvd.html is it because we wanted to edit our 
+ * other windows svg image thats why we made it inline for dvd.html but for the main html window we did not want to edit the image
+ * so thats why we made it an image tag**
+ * 
+ * I thought current color was used with text color so why did we use just color: in the JS to apply our color in the dvd.html
+ * for current color is it because color: represents text color and that can be only used to change the current color
+ * on a style element**
+ * 
+ * why did we use fill with the current color on the path element I thought it would 
+ * have been a style on the path element or is it included in the path element by default as an attribute (in the HTML path tag)**
+ * 
+ *   getWindow: () => { //why do we return a method here and not just proxy**** (or is this not a method what is this)****
+      //difference between this and a method****
+      return proxy;
+    },
+
+    for dvd.ts**
+
+
+    x = Math.floor(min_x + Math.random() * (max_x - min_x));
+    y = Math.floor(min_y + Math.random() * (max_y - min_y));
+    x = x + dx * deltaTimeSeconds;
+    y = y + dy * deltaTimeSeconds;
+    //so we make x and y initially to make the window size for each window when we open it
+    // then we override it with the rate it should move
+    //at per frame (how does that work)****
+    //is it because we first define the window size when we make a dvd in initwindow() and we don't need it anymore and we can just
+    override it with a step value now for each frame**
+
+    //when we call drivewindows we get a timestamp for free (is the timestamp as soon as the browser
+    //starts (when the browser is finished loading in or when the browser is opened)** and it starts counting up in ms)****
+    window.requestAnimationFrame(driveWindows);
+
+      //this will always be positive becase timestamp will always be larger than previoustimestamp**
+      const elapsed = timeStamp - previousTimeStamp;
+
+    go over pip code if time**
+
+    
+ * 
  * 
  * 
  * 
