@@ -279,6 +279,10 @@ const displayGamepad = (gamepad: Gamepad) => {
  * 
  * what does the last bullet mean on slide 8**
  * 
+ * does CSS also take only radians as well so we have to convert from degrees to radians for hammer.JS (slide 8 last bullet)**
+ * 
+ * how would we apply a certain gesture from JS into CSS if the value is in JS (slide 8 last bullet)**
+ * 
  * 
  * 
  * 

@@ -82,8 +82,8 @@ export const getNameFromIndex = (index: number) => {
 };
 
 //how do we know which type is button name is it the type defined above or the array**
-//does this get the index and do the pressed how does it know which button is pressed from just an index 
-//and it pressed built into the gamepad**
+//does this get the index of the button and do the pressed how does it know which button is pressed from just an index 
+//and it pressed built into the gamepad API**
 export const isPressed = (gamepad: Gamepad, buttonName: ButtonName) => {
   return gamepad.buttons[ButtonIndex[buttonName]].pressed;
 };
