@@ -22,6 +22,8 @@ export type ButtonName =
 
 // used for getValueFor and isPressed
 // (useful when we know the button name, but don't know the button index)
+// when would we know the button name but not the button index**
+// which button name does this take in because we have a type and array of button names**
 const ButtonIndex: Record<ButtonName, number> = {
   A: 0,
   B: 1,
@@ -44,6 +46,7 @@ const ButtonIndex: Record<ButtonName, number> = {
 
 // used for getNameFromIndex helper
 // (useful when we know the index, but don't know the button name)
+// when would we know the index but not the button name**
 const buttonNames: ButtonName[] = [
   'A',
   'B',
@@ -66,8 +69,9 @@ const buttonNames: ButtonName[] = [
 
 //how does it know which button name to use because we have the type and the array**
 //what does the type and array do and how did we know to have a type and array for the button name**
-//where did we define buttons and when we connect our controller does it know the controller and its inputs
+//where did we define buttons that map to our controller and when we connect our controller does it know the controller and its inputs
 //are equal to the gamepad type automatically for the gamepad API variable**
+//where did we define buttons in get value for function (these count as funcitons right)**
 //go over all**
 export const getValueFor = (gamepad: Gamepad, buttonName: ButtonName) => {
   return gamepad.buttons[ButtonIndex[buttonName]].value;
@@ -77,6 +81,9 @@ export const getNameFromIndex = (index: number) => {
   return buttonNames[index];
 };
 
+//how do we know which type is button name is it the type defined above or the array**
+//does this get the index and do the pressed how does it know which button is pressed from just an index 
+//and it pressed built into the gamepad**
 export const isPressed = (gamepad: Gamepad, buttonName: ButtonName) => {
   return gamepad.buttons[ButtonIndex[buttonName]].pressed;
 };

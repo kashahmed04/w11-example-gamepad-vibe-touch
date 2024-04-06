@@ -29,6 +29,7 @@ See:
 */
 
 #canvas {
+  /*what does this do**/
   aspect-ratio: 16 / 10;
   width: 100%;
 }
@@ -36,7 +37,8 @@ See:
 #readout {
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 10; /*why did we need a z-index here is it because we want to display our text content on top of the controller
+  what is the default z-index for all elements**/
   position: fixed;
   padding: 10px;
 }
@@ -44,7 +46,7 @@ See:
 #text {
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
-  white-space: 'pre';
-  color: black;
-  background-color: white;
+  white-space: 'pre'; /*what does this do**/
+  color: black; /*color is only used for text color right**/
+  background-color: white; /*why did we set background color white here instead of in the readout div**/
 }
