@@ -353,7 +353,11 @@ const displayGamepad = (gamepad: Gamepad) => {
 
     
  * 
- * 
+ * so a JS closure is when we use let and const inside of a class just like a function and its locally scoped but we can return
+ * certain aspects we want to be known to other files or things outside of the class whereas with functions we can't**
+ * so a function counts as a JS closure right since the variables are locally (block) scoped in the method right**
+ * what is a JS closure how is it different from a variable being block scoped**
+ * only let and const are used in JS closures right not var** 
  * 
  * 
  * 
