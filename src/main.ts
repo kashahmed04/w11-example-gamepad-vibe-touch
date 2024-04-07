@@ -4,7 +4,7 @@ import './styles.css';
 //why do we have to do the ./ if its in the same src folder as main.ts**
 import { getNameFromIndex, getValueFor, isPressed } from './GamepadHelper';
 
-const text = document.querySelector('#text') as HTMLDivElement;
+const text = document.querySelector('#text') as HTMLDivElement; //why did we put div here instead of span how does this work**
 const canvas = document.querySelector('#canvas') as HTMLCanvasElement;
 canvas.width = 1600;
 canvas.height = 1000;
@@ -16,23 +16,26 @@ const context = canvas.getContext('2d') as CanvasRenderingContext2D;
 
 //so basically this event listener is ran when we connect a gamepad the first time or when we disconnect and connect it again as well**
 //this event listener also runs when it first experiences all the controls but after the first time for each control
-//it stops going to this event listener and goes**
+//it stops going to this event listener and goes to**
 //when was the situation where we did not need this event listener and when we needed it (one or multiple
 //controllers being connected)**
 
 // gamepadconnected is useful to know when gamepad connections happen
-// but it's not necessary for the gamepad to work - navigator.getGamepads() can be called directly!(what situations
-// would we need the event listener and not need the event listener)**
+// but it's not necessary for the gamepad to work - navigator.getGamepads() can be called directly! (where and how)**
+// (what situations would we need the event listener and not need the event listener)**
 // navigator.getGamepads() only takes in 4 gamepads connected to one device at a time right** (slide 3)**
 // is the gamepad only for PC connection or could it be mobile devices to (for bluetooth)**
 // do bluetooth connections work as well or only wired connections for this**
 window.addEventListener('gamepadconnected', (e) => {
   //how does it know what the index is for the controller**
-  //the id is the name of the controller right**
+  //the id is the name of the controller or controlllers we connect right** (if we have multiple controllers would there be 
+  //multiple of these console.log for each controller for the event listener or only 1 with all the information in it 
+  //for each controller)**
   //what is the buttons array is it an array of all the controls or what we can do with the controls** (slide 3)**
-  //what are the axis for (slide 3)**
+  //what are the axis and they are only for the joysticks or for the triggers as well (slide 3)**
   //go over vibration actuator what does it mean by non-standard** (slide 3)**
   //what are these percentages in the console.log statement**
+  //how did we know to use e.gamepad here didnt we have to define gamepad was type of gamepad how does it work**
   console.log(
     'Gamepad connected at index %d: %s. %d buttons, %d axes.',
     e.gamepad.index,
@@ -54,8 +57,6 @@ let isVibing = false;
 const img = new Image();
 img.onload = () => {
   // start drawing once the image has loaded
-  // so every frame we refresh and we draw the image in the canvas and it and it goes the full
-  // width of the canvas because we put 1600 which is the width of the image and for the height its**
   window.requestAnimationFrame(draw);
 };
 
@@ -66,12 +67,19 @@ img.src = './assets/xbox_360.png';
 // render loop
 const draw = () => {
   context.clearRect(0, 0, 1600, 1000);
+  
+  // so every frame we refresh and we draw the image in the canvas and it and it goes the full
+  // width of the canvas because we put 1600 which is the width of the image and for the height its 1000
+  // and we start at (0,0) to start drawing the image on the top left to the full canvas bounds which is the whole image size**
+  //the canvas units are in pixels by default right and we cant change it**
   context.drawImage(img, 0, 0);
 
   // get the current state of all gamepads
-  // so this gets the state of all the buttons that are clicked and not clicked by default and its built in**
-  // the navigator only accounts window right so it will show the buttons clicked on the window after it gets the buttons
-  // that are clicked and not clicked**
+  // so this gets the state of all the buttons that are clicked and not clicked by default and its built in for gamepad API**
+  // do we not have to define we are using the gamepad API in the beginning of our code or any API we can just use it 
+  // (we had to define things in the start for babylon.JS and three.JS though)**
+  // the navigator only accounts window right so it will show the buttons clicked on the current window with
+  // this application open after it gets the buttons that are clicked and not clicked**
   // what does it mean by the current state of all the gamepads**
   const gamepads = navigator.getGamepads();
 
@@ -86,6 +94,7 @@ const draw = () => {
   //program or refresh the page then we keep repeating it here each frame**
   //here we draw the background image then call the displaygamepad to draw the button clicks or movement on joysticks
   //on the background image right**
+  //could we have just said draw() in the image.onload if it only gets called once**
   window.requestAnimationFrame(draw);
 };
 
@@ -225,7 +234,7 @@ const displayGamepad = (gamepad: Gamepad) => {
     //go over what does weak and strong magnitude do**
     //how did we know to use getvalue (index) here instead of another method in gamepad helper**
     gamepad.vibrationActuator?.playEffect('dual-rumble', {
-      startDelay: 0,
+      startDelay: 0, //what does this do**
       duration: 200,
       weakMagnitude: getValueFor(gamepad, 'LT'),
       strongMagnitude: getValueFor(gamepad, 'RT'),
@@ -233,13 +242,14 @@ const displayGamepad = (gamepad: Gamepad) => {
 
     // stop vibing after a bit
     //we stop after 201 ms so we make sure we vibrate the full 200 ms otherwise we woud vibrate for 199 ms if we stopped
-    //at 200 ms (everything in JS is in ms right)
+    //at 200 ms (everything in JS is in ms right)**
     //for set time out how does it know to stop after 201 ms if we dont put anything in the parameter** (how do we know to put
     //something in parameter)**
     //settimeout basically just does this once instead of on an interval for setinterval
     //so we stop vibrating after 201 ms until this conditional
     //is true again then it does this again**
     //how do we know to put things in parameter for settimeout and setinterval**
+    //what f we used setinterval instead**
     setTimeout(() => {
       isVibing = false;
     }, 201);

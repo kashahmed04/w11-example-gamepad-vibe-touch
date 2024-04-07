@@ -70,7 +70,8 @@ const buttonNames: ButtonName[] = [
 //how does it know which button name to use because we have the type and the array**
 //what does the type and array do and how did we know to have a type and array for the button name**
 //where did we define buttons that map to our controller and when we connect our controller does it know the controller and its inputs
-//are equal to the gamepad type automatically for the gamepad API variable**
+//are equal to the gamepad type automatically for the gamepad API variable (or do we have to press all the buttons first when we
+//connect out controller to map the buttons and inputs)**
 //where did we define buttons in get value for function (these count as funcitons right)**
 //go over all**
 export const getValueFor = (gamepad: Gamepad, buttonName: ButtonName) => {
