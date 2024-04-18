@@ -361,4 +361,52 @@ const displayGamepad = (gamepad: Gamepad) => {
  * 
  * 
  * 
+ * 
+ * the axes in the gamepad object is just for the joysticks and the triggers are floats in the buttons array 
+ * (1 when fully pressed and 0 when not pressed for all buttons but triggers can also be in between 0 and 1 as a float)
+ * buttons is the properties on the gamepad button object for each button (pressed is boolean if pressed or not same
+ * for touched and it also returns a boolean and the value is 0 or 1 or decimal value for the triggers)
+ * some buttons can detect touch (are we resting finger on button without pressing it) this is what touched it for 
+ * for the buttons
+ * vibration actuator (non standard means its not agreed upon for all browsers on how to use it)(some browsers may use it or may
+ * have conflicting ideas on the vibration)(depends on the browser)(haptic actuator is firefox and vibation actuator is everything
+ * else)
+ * 
+ * if there is nothing in the array after we do navigaor.getgamepads() then everything is null but if we have 1 gamepad
+ * then we say the 0th entry to use that controller (if we had more gamepads we would have this conditonal written for each
+ * gamepad)
+ * 
+ *  // get the current state of all gamepads
+  const gamepads = navigator.getGamepads();
+
+  if (gamepads[0]) {
+    displayGamepad(gamepads[0]);
+  }
+
+  // draw again next frame
+  window.requestAnimationFrame(draw);
+};
+
+ * 
+ * for the vibration for the array it varies by browser for the length of the array and if we exceed that limit it just
+ * stops vibrating at it's limit (the array gets truncated)
+ * when we cancel the vibration out for the last array with the [0,0,0,0,....] (we can even pass in an array with one
+ * zero ([0]) and it would work and does not have to match the amount of entries in the vibration array)
+ * 
+ * for touch we have a coorindate for us but for gestures we need to do math to compare each point with each other
+ * for a gesture to figure out what gesture we are doing 
+ * 
+ * we can do gestures together and panstart and panend allows us to move without pinching or rotating but we can mix
+ * and do different gestures
+ * 
+ * hammerJS is in degrees and we need to convert the angle to radians to apply it to the canvas because the canvas is in radians
+ * how do we achieve the pan and zoom effect in our applicaiton for last bullet on slide 8 for touch events hammerJS
+ * gives us the angles and the translate and scales (transforms) and we use CSS or canvas to apply these to our objects in the browser
+ * 
+ * we look for pinches and look for pan and rotate as well
+ * new Hammer.Pinch({ threshold: 0 }).recognizeWith([
+    mc.get('pan'),
+    mc.get('rotate'),
+  ]),
+ * 
  */
